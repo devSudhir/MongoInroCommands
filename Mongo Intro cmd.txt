@@ -1,0 +1,37 @@
+mongo
+show dbs
+use assignment
+db.createCollection("users")
+db.users.insert({firstName:"name1",lastName:"lname1",email:"name1@gmail.com",gender:"male",ip_address:"127.0.0.1",age:"20"})
+db.users.find().pretty();
+db.users.insertMany([{firstName:"name2",lastName:"lname2",email:"name2@gmail.com",gender:"male",ip_address:"127.0.0.2",age:"21"},
+{firstName:"name3",lastName:"lname3",email:"name3@gmail.com",gender:"male",ip_address:"127.0.0.3",age:"22"},
+{firstName:"name4",lastName:"lname4",email:"name4@gmail.com",gender:"male",ip_address:"127.0.0.4",age:"23"},
+{firstName:"name5",lastName:"lname5",email:"name5@gmail.com",gender:"male",ip_address:"127.0.0.5",age:"24"},
+{firstName:"name6",lastName:"lname6",email:"name6@gmail.com",gender:"male",ip_address:"127.0.0.6",age:"25"},
+{firstName:"name7",lastName:"lname7",email:"name7@gmail.com",gender:"male",ip_address:"127.0.0.7",age:"26"},
+{firstName:"name8",lastName:"lname8",email:"name8@gmail.com",gender:"male",ip_address:"127.0.0.8",age:"27"},
+{firstName:"name9",lastName:"lname9",email:"name9@gmail.com",gender:"male",ip_address:"127.0.0.2",age:"28"},
+{firstName:"name10",lastName:"lname10",email:"name10@gmail.com",gender:"male",ip_address:"127.0.0.2",age:"29"}])
+db.users.find().pretty();
+db.users.findOne({gender:"male"})
+db.users.update({firstName:"name1"},{$set:{firstName:"name11",gender:"female"}})
+db.users.findOne({gender:"female"})
+db.users.updateMany({ip_address:"127.0.0.2"},{$set:{ip_address:"127.0.0.20"}})
+db.users.find().pretty();
+db.users.remove({firstName:"name11"})
+db.users.find().pretty();
+db.users.remove({ip_address:"127.0.0.20"},1)
+db.users.find().pretty();
+db.users.remove({ip_address:"127.0.0.20"})
+db.users.find().pretty();
+db.users.deleteOne({gender:"male"})
+db.users.deleteMany({gender:"male"})
+db.users.drop(); // drop collection
+db.dropDatabase(); // drop database
+
+
+
+
+
+
